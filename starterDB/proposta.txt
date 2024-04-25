@@ -1,0 +1,41 @@
+CheckList 25ABR 
+
+[X] - Criar conta de usuario e BD e Atribuir privilégios
+	Interfaces
+	[X] Heidi 
+	[x] phpMyAdmin
+[X] - Construir Novo Diagrama Reduzido 
+	(Entidades, atributos, relacionamentos e cardinalidades)
+[x] - Linguagem SQL e o padrão ANSI
+[x] - DDL 
+[x] - Criação de Tabelas
+	[x] Tipos de Dados		
+	[ ] Chaves PK / FK / PFK
+	[x] Constraints
+		[x] Default
+		[x] Check
+		[x] Unique
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Natali
+Isabelle
+Isabela
+Matheus Rocha
+Daniel
+Nickolly
+Wickles
