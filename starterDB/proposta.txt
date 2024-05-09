@@ -10,7 +10,7 @@ CheckList 25ABR
 [x] - DDL 
 [x] - Criação de Tabelas
 	[x] Tipos de Dados		
-	[ ] Chaves PK / FK / PFK
+	[x] Chaves PK / FK / PFK
 	[x] Constraints
 		[x] Default
 		[x] Check
@@ -19,14 +19,14 @@ CheckList 25ABR
 
 CheckList 02MAI
 
-[ ] Fechar o CheckList anterior
-[ ] Realizar CRUD
-	[ ] Inserir
-	[ ] Alterar
-	[ ] Excluir
-	[ ] Buscar
-		[ ] Filtro WHERE
-[ ] Demonstração das Restrições trabalhando
+[x] Fechar o CheckList anterior
+[x] Realizar CRUD
+	[x] Inserir
+	[x] Alterar
+	[x] Excluir
+	[x] Buscar
+		[x] Filtro WHERE (SELECT)
+[x] Demonstração das Restrições trabalhando - PK, FK, CHECK, DEFAULT e UQ 
 [ ] Atividade Prática para consolidar os conceitos
 	
 

@@ -64,3 +64,69 @@ SELECT * FROM tiposconta
 SELECT nomeTipoConta,idTipoConta FROM tiposconta
 SELECT nome, telefone from Clientes
 
+INSERT INTO contas (numeroConta, saldo, limite, statusConta, idTipoConta)
+VALUES ('77778888',1000,0,'1',1);
+INSERT INTO contas (numeroConta, saldo, limite, statusConta, idTipoConta)
+VALUES ('77779999',10000,500.75,'1',1);
+INSERT INTO contas (numeroConta, saldo, limite, idTipoConta)
+VALUES ('72729999',976.88,1500,4);
+INSERT INTO contas (numeroConta, saldo, idTipoConta)
+VALUES ('11116655',276.88,1);
+INSERT INTO contas (numeroConta, saldo, idTipoConta)
+VALUES ('10',3276.88,1);
+
+/* where =, >, >=, <=, like, and, or */
+DELETE FROM clientes
+WHERE cidade='Santos' 
+
+
+SELECT * FROM contas;
+SELECT * FROM clientes 
+
+/*01 cliente possui uma conta*/
+INSERT INTO clientescontas (idCliente, idConta)
+VALUES (1,1);
+SELECT * FROM clientescontas
+
+/*02 clientes possuem a mesma conta*/
+INSERT INTO clientescontas (idCliente, idConta)
+VALUES (2,6);
+INSERT INTO clientescontas (idCliente, idConta)
+VALUES (3,6);
+SELECT * FROM clientescontas
+
+/*01 cliente possui duas contas */
+INSERT INTO clientescontas (idCliente, idConta)
+VALUES (4,3);
+INSERT INTO clientescontas (idCliente, idConta)
+VALUES (4,4);
+SELECT * FROM clientescontas
+
+/*Falha por duplicar a chave primária composta*/
+INSERT INTO clientescontas (idcliente,idconta)
+VALUES (3,6);
+
+/*Busca com filtros*/
+
+SELECT * FROM Clientes
+
+SELECT nome, cidade FROM Clientes
+
+SELECT nome, cidade FROM Clientes
+WHERE cidade='Santos'
+
+SELECT nome, cep FROM clientes
+WHERE nome LIKE 'L%O'
+
+SELECT nome AS 'nome do cliente', cidade FROM clientes
+WHERE cidade <> 'Santos' 
+
+DELETE FROM contas 
+WHERE idConta=6
+
+SELECT * FROM clientesContas
+
+SELECT NOW() AS 'Data Atual'
+
+
+
