@@ -1,5 +1,19 @@
-USE senabiblio;
+/*NOVO SENABIBLIO*/
+/*Apagando todas as tabelas*/
+DROP TABLE emprestimoslivros;
+DROP TABLE livrosautores;
+DROP TABLE autores;
+DROP TABLE livros;
+DROP TABLE editoras;
+DROP TABLE emprestimos;
+DROP TABLE recepcionistas;
+DROP TABLE alunos;
+DROP TABLE professores;
+DROP TABLE contatostelefonicos;
+DROP TABLE usuarios;
 
+/* Recriação das tabelas */
+/* Tabela Usuarios */
 CREATE TABLE Usuarios (
 idUsuario INT AUTO_INCREMENT NOT NULL,
 nome VARCHAR(50) NOT NULL,
@@ -22,38 +36,48 @@ CONSTRAINT CK_genero CHECK (genero='F' OR genero='M' OR genero='N')
 
 SELECT * FROM usuarios
 
-senabiblioCREATE TABLE Alunos (
-idUsuario INT NOT NULL,
+/*Tabela Alunos*/
+CREATE TABLE Alunos (
+idAluno INT NOT NULL,
 matricula VARCHAR(10) NOT NULL,
 nivelPontualidade TINYINT(1),
-CONSTRAINT fk_Aluno_Usuario FOREIGN KEY (idUsuario)
+CONSTRAINT fk_Aluno_Usuario FOREIGN KEY (idAluno)
 REFERENCES Usuarios(idUsuario)
 );
+
+ALTER TABLE Alunos
+ADD CONSTRAINT PRIMARY KEY (idAluno)
 
 SELECT * FROM alunos
 
-CREATE TABLE Professores (
-idUsuario INT NOT NULL,
-areaAtuaçao VARCHAR(10) NOT NULL,
-salario DECIMAL(6,2) NOT NULL,
-CONSTRAINT FK_Professores_Usuarios FOREIGN KEY (idUsuario) REFERENCES Usuarios(idUsuario)
-);
-
-SELECT * FROM professores
+/* Tabela Recepcionista */
 
 CREATE TABLE Recepcionistas (
-idusuario INT NOT NULL,
+idRecepcionista INT NOT NULL,
 CTPS CHAR(11),
-CONSTRAINT FK_Recepcionistas_Usuarios FOREIGN KEY (idusuario)
+CONSTRAINT FK_Recepcionistas_Usuarios FOREIGN KEY (idRecepcionista)
 REFERENCES Usuarios(idUsuario)
 );
 
-
 ALTER TABLE Recepcionistas
-MODIFY COLUMN CTPS CHAR(11); 
+ADD CONSTRAINT PRIMARY KEY (idRecepcionista)
 
-recepcionistas
+SELECT * FROM Recepcionistas
 
+/* Tabela Professores */
+CREATE TABLE Professores (
+idProfessor INT NOT NULL,
+areaAtuacao VARCHAR(25) NOT NULL,
+salario DECIMAL(7,2) NOT NULL,
+CONSTRAINT FK_Professores_Usuarios FOREIGN KEY (idProfessor) REFERENCES Usuarios(idUsuario)
+);
+
+ALTER TABLE Professores
+ADD CONSTRAINT PRIMARY KEY (idProfessor)
+
+SELECT * FROM professores
+
+/*Tabela ContatosTelefonicos*/
 CREATE TABLE ContatosTelefonicos(
 idContatoTelefonico INT AUTO_INCREMENT NOT NULL,
 idUsuario INT NOT NULL,
@@ -63,22 +87,24 @@ numero VARCHAR(9) NOT NULL,
 CONSTRAINT PRIMARY KEY (idContatoTelefonico),
 CONSTRAINT fk_ContatosTelefonicos_Usuarios FOREIGN KEY (idUsuario) REFERENCES Usuarios(idUsuario));
 
-SELECT * FROM contatostelefonicos
+SELECT * FROM contatosTelefonicos
 
+/*Tabela Emprestimo*/
 CREATE TABLE Emprestimos (
 idEmprestimo INT AUTO_INCREMENT NOT NULL,
-idUsuario INT NOT NULL,
+idUsuario INT NOT NULL, /*pois qualquer usuario pode emprestar livro*/
 idRecepcionista INT NOT NULL,
 dataEmprestimo DATETIME NOT null,
 dataDevolucao DATETIME NOT NULL,
 dataDevolucaoEfetiva DATETIME,
 multa DECIMAL (6,2), 
 CONSTRAINT PRIMARY KEY (idEmprestimo),
-CONSTRAINT FK_Emprestimos_Recepcionistas FOREIGN KEY (idRecepcionista) REFERENCES Recepcionistas (idUsuario),
+CONSTRAINT FK_Emprestimos_Recepcionistas FOREIGN KEY (idRecepcionista) REFERENCES Recepcionistas (idRecepcionista),
 CONSTRAINT FK_Emprestimos_Usuarios FOREIGN KEY (idUsuario) REFERENCES usuarios(idUsuario));
 
 SELECT * FROM emprestimos
 
+/*Tabela Autor*/
 CREATE TABLE Autores (
 idAutor INT NOT NULL AUTO_INCREMENT,
 nome VARCHAR(50) NOT NULL,
@@ -88,25 +114,27 @@ CONSTRAINT PRIMARY KEY (idAutor)
 
 SELECT * FROM autores
 
+/*Tabela Editora*/
 CREATE TABLE Editoras (
 idEditora INT AUTO_INCREMENT NOT NULL,
 nome VARCHAR(30) NOT NULL,
 celular VARCHAR(14) NOT NULL,
 email VARCHAR(50) NOT NULL,
 responsavel VARCHAR(50) NOT NULL,
-isbn CHAR(10),
+isbn CHAR(13),
 CONSTRAINT PRIMARY KEY(idEditora)
 );
 
 SELECT * FROM editoras
 
+/*Tabela Livro*/
 CREATE TABLE Livros (
 idLivro INT auto_increment NOT NULL,
 idEditora INT NOT NULL,
 nome VARCHAR(100) NOT NULL,
 tomo VARCHAR(10) NOT NULL,
 genero VARCHAR(15) NOT NULL,
-qtdPaginas INT,
+qtdPaginas INT NOT null,
 idioma VARCHAR(20) NOT NULL,
 ano INT,
 edicao INT,
@@ -117,6 +145,7 @@ CONSTRAINT FK_Livros_Editoras FOREIGN KEY(idEditora) REFERENCES Editoras(idEdito
 
 SELECT * FROM livros
 
+/*tabela LivrosAutores*/
 CREATE TABLE LivrosAutores (
 idLivro INT NOT NULL,
 idAutor INT NOT NULL,
@@ -127,6 +156,8 @@ CONSTRAINT FK_LivroAutores_Autores FOREIGN KEY (idAutor) REFERENCES Autores(idAu
 
 SELECT * FROM livrosautores
 
+/*Tabela EmprestimosLivros*/
+
 CREATE TABLE EmprestimosLivros (
 idEmprestimo INT NOT NULL,
 idLivro INT NOT NULL,
@@ -135,22 +166,6 @@ CONSTRAINT fk_EmprestimoLivros_Emprestimos FOREIGN KEY (idEmprestimo) REFERENCES
 CONSTRAINT fk_EmprestimosLivros_Livros FOREIGN KEY (idLivro) REFERENCES Livros (idLivro)
 );
 
-SELECT * FROM EmprestimosLivros
+SELECT * FROM emprestimoslivros
 
-SHOW TABLES;
-
-USE starterdb
-
-SELECT nome,cpf,cidade FROM clientes 
-WHERE cidade='Santos' /*primeiro filtro */
-ORDER BY nome DESC /*depois ordenação */
-
-
-
-
-
-
-
-
-
-recepcionistasrecepcionistas
+SHOW tables

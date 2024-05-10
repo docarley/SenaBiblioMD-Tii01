@@ -402,4 +402,352 @@ VALUES ('Chico','31224459','00000000005','contato@Chico.com.br','masculino','Rua
 
 SELECT * FROM usuarios
 
-/*Comments*/
+/*Inserindo Professores*/
+
+INSERT INTO Professores (
+idUsuario, areaAtuacao, salario) 
+VALUES ( 11, 'Infoprofessoresrmatica', 2500.70); 
+
+INSERT INTO Professores ( 
+idUsuario, areaAtuacao, salario) 
+VALUES ( 12, 'Portugues', 3000); 
+
+INSERT INTO Professores ( 
+idUsuario, areaAtuacao, salario) 
+VALUES ( 13, 'Matematica', 5600); 
+
+INSERT INTO Professores ( 
+idUsuario, areaAtuacao, salario) 
+VALUES ( 14, 'Culinaria', 6500); 
+
+INSERT INTO Professores ( 
+idUsuario, areaAtuacao, salario) 
+VALUES ( 15, 'Ed. física', 2900); 
+
+SELECT * FROM professores
+
+/*Inserindo aluno*/
+
+INSERT INTO Usuarios(idUsuario,nome,senha,cpf,email,genero,tipologradouro,nomelogradouro,numero,cidade,estado,cep,bairro)  
+VALUES(6,'Pedro','33224455','00000000001','contato@Pedro.com.br','masculino','Avenida','Engenheiro Manuel ferramenta junior','134','santos','SP','11086400','Areia Banca'); 
+  
+INSERT INTO Usuarios (idUsuario,nome,senha,cpf,email,genero,tipologradouro,nomelogradouro,numero,cidade,estado,cep,bairro)  
+VALUES (7,'Lucas','39224456','00000000002','contato@Lucas.com.br','masculino','Avenida','Brasil','13','Santos','SP','01430000','Jardim América'); 
+
+INSERT INTO Usuarios (idUsuario,nome,senha,cpf,email,genero,tipologradouro,nomelogradouro,numero,cidade,estado,cep,bairro)  
+VALUES (8,'Vinicio','37224457','00000000003','contato@Vinicio.com.br','masculino','Avenida','Francisco Glicério','159','Santos','SP','11065401','Gonzaga'); 
+ 
+INSERT INTO Usuarios (idUsuario,nome,senha,cpf,email,genero,tipologradouro,nomelogradouro,numero,cidade,estado,cep,bairro)  
+VALUES (9,'Dell','35224458','00000000004','contato@Dell.com.br','masculino','Rua','Alameda Ari Barroso','Sao Vicente','3','SP','11320400','Ilha Porchat'); 
+
+INSERT INTO Usuarios (idUsuario,nome,senha,cpf,email,genero,tipologradouro,nomelogradouro,numero,cidade,estado,cep,bairro) 
+VALUES (10,'Chico','31224459','00000000005','contato@Chico.com.br','masculino','Rua','Alameda Adriano Neiva da Mota e Silva','230','Santos','SP','11065690','José Menino'); 
+
+SELECT * FROM usuarios
+
+INSERT INTO alunos (idUsuario,matricula,nivelPontualidade) 
+VALUES ('6','0006500001','5'); 
+
+INSERT INTO alunos (idUsuario,matricula,nivelPontualidade) 
+VALUES ('7','0000088002','4'); 
+
+INSERT INTO alunos (idUsuario,matricula,nivelPontualidade) 
+VALUES ('8','0000664003','3'); 
+
+INSERT INTO alunos (idUsuario,matricula,nivelPontualidade) 
+VALUES ('9','0000678304','2'); 
+
+INSERT INTO alunos (idUsuario,matricula,nivelPontualidade) 
+VALUES ('10','0009143432','5'); 
+
+SELECT * FROM alunos
+
+
+/*Inserindo Emprestimos*/ 
+
+INSERT INTO emprestimos ( 
+
+dataemprestimo,datadevolucao,datadevolucaoefetiva,multa,idusuario,idrecepcionista 
+
+) 
+
+VALUES( 
+
+'2021-01-05 10:23', 
+
+'2021-01-10 10:23', 
+
+'2021-01-09 11:58', 
+
+123.33, 
+
+11, 
+
+2 
+
+); 
+
+  
+
+/*2*/ 
+
+INSERT INTO emprestimos ( 
+
+dataemprestimo,datadevolucao,datadevolucaoefetiva,multa,idusuario,idrecepcionista 
+
+) 
+
+VALUES( 
+
+'2020-02-02 14:15', 
+
+'2020-02-09 14:15', 
+
+'2020-01-04 9:55', 
+
+493.33, 
+
+14, 
+
+2 
+
+); 
+
+  
+
+/*3*/ 
+
+INSERT INTO emprestimos ( 
+
+dataemprestimo,datadevolucao,datadevolucaoefetiva,multa,idusuario,idrecepcionista 
+
+) 
+
+VALUES( 
+
+'2022-05-20 18:22', 
+
+'2022-05-27 18:22', 
+
+'2022-05-24 11:01', 
+
+156.33, 
+
+12, 
+
+1 
+
+); 
+
+  
+
+/*4*/ 
+
+INSERT INTO emprestimos ( 
+
+dataemprestimo,datadevolucao,datadevolucaoefetiva,multa,idusuario,idrecepcionista 
+
+) 
+
+VALUES( 
+
+'2022-07-02 14:22', 
+
+'2022-07-09 14:22', 
+
+'2022-07-05 12:44', 
+
+156.33, 
+
+14, 
+
+1 
+
+); 
+
+  
+
+/*5*/ 
+
+INSERT INTO emprestimos ( 
+
+dataemprestimo,datadevolucao,datadevolucaoefetiva,multa,idusuario,idrecepcionista 
+
+) 
+
+VALUES( 
+
+'2022-02-22 10:56', 
+
+'2022-02-29 10:56', 
+
+'2022-02-25 17:50', 
+
+0, 
+
+8, 
+
+3 
+
+); 
+
+  
+
+/*6*/ 
+
+INSERT INTO emprestimos ( 
+
+dataemprestimo,datadevolucao,datadevolucaoefetiva,multa,idusuario,idrecepcionista 
+
+) 
+
+VALUES( 
+
+'2022-03-22 8:55', 
+
+'2022-03-29 8:55', 
+
+'2022-03-28 15:15', 
+
+0, 
+
+8, 
+
+3 
+
+); 
+
+  
+
+/*7*/ 
+
+INSERT INTO emprestimos ( 
+
+dataemprestimo,datadevolucao,datadevolucaoefetiva,multa,idusuario,idrecepcionista 
+
+) 
+
+VALUES( 
+
+'2022-05-10 13:12', 
+
+'2022-05-17 13:12', 
+
+'2022-05-14 19:00', 
+
+16.33, 
+
+9, 
+
+4 
+
+); 
+
+  
+
+/*8*/ 
+
+INSERT INTO emprestimos ( 
+
+dataemprestimo,datadevolucao,datadevolucaoefetiva,multa,idusuario,idrecepcionista 
+
+) 
+
+VALUES( 
+
+'2024-01-12 16:23', 
+
+'2024-01-19 16:23', 
+
+'2024-01-18 8:23', 
+
+0, 
+
+4, 
+
+4 
+
+); 
+
+  
+
+/*9*/ 
+
+INSERT INTO emprestimos ( 
+
+dataemprestimo,datadevolucao,datadevolucaoefetiva,multa,idusuario,idrecepcionista 
+
+) 
+
+VALUES( 
+
+'2023-11-07 18:12', 
+
+'2023-11-14 18:12', 
+
+'2023-11-16 9:46', 
+
+45.61, 
+
+2, 
+
+5 
+
+); 
+
+  
+
+/*10*/ 
+
+INSERT INTO emprestimos ( 
+
+dataemprestimo,datadevolucao,datadevolucaoefetiva,multa,idusuario,idrecepcionista 
+
+) 
+
+VALUES( 
+
+'2022-06-09 10:01', 
+
+'2022-06-16 10:01', 
+
+'2022-06-17 19:20', 
+
+51.53, 
+
+2, 
+
+5 
+
+); 
+
+
+SELECT * FROM emprestimos;
+SELECT * FROM livros
+/*Inserindo Emprestimos - Livro*/
+
+INSERT INTO emprestimoslivros (idEmprestimo, idLivro) VALUES (12,1); 
+
+INSERT INTO emprestimoslivros (idEmprestimo, idLivro) VALUES (12,2); 
+
+INSERT INTO emprestimoslivros (idEmprestimo, idLivro) VALUES (13,3); 
+
+INSERT INTO emprestimoslivros (idEmprestimo, idLivro) VALUES (14,4); 
+
+INSERT INTO emprestimoslivros (idEmprestimo, idLivro) VALUES (15,5); 
+
+INSERT INTO emprestimoslivros (idEmprestimo, idLivro) VALUES (15,6); 
+
+INSERT INTO emprestimoslivros (idEmprestimo, idLivro) VALUES (16,7); 
+
+INSERT INTO emprestimoslivros (idEmprestimo, idLivro) VALUES (17,8); 
+
+INSERT INTO emprestimoslivros (idEmprestimo, idLivro) VALUES (18,9); 
+
+INSERT INTO emprestimoslivros (idEmprestimo, idLivro) VALUES (19,10); 
+
+INSERT INTO emprestimoslivros (idEmprestimo, idLivro) VALUES (20,1); 
+
+INSERT INTO emprestimoslivros (idEmprestimo, idLivro) VALUES (21,2); 
+
+SELECT * FROM emprestimoslivros
