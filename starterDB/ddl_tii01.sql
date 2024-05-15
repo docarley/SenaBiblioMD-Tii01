@@ -22,7 +22,7 @@ CONSTRAINT CK_genero CHECK (genero='F' OR genero='M' OR genero='N')
 
 SELECT * FROM usuarios
 
-senabiblioCREATE TABLE Alunos (
+CREATE TABLE Alunos (
 idUsuario INT NOT NULL,
 matricula VARCHAR(10) NOT NULL,
 nivelPontualidade TINYINT(1),
@@ -52,7 +52,6 @@ REFERENCES Usuarios(idUsuario)
 ALTER TABLE Recepcionistas
 MODIFY COLUMN CTPS CHAR(11); 
 
-recepcionistas
 
 CREATE TABLE ContatosTelefonicos(
 idContatoTelefonico INT AUTO_INCREMENT NOT NULL,
